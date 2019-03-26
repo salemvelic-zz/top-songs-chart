@@ -13,15 +13,19 @@
           <span class="All">All</span>
           <span class="Today">Featured</span>
         </div>
-        <div class="card" v-for="album in albums" :key="album.id">
+        <div
+          class="card"
+          v-for="album in albums"
+          :key="album.id.attributes['im:id']"
+        >
           <img
             class="slika1"
-            src="..\assets\base\img\slika-1.png"
+            :src="album['im:image'][0].label"
             srcset="img/slika-1@2x.png 2x, img/slika-1@3x.png 3x"
           />
           <div class="content">
-            <h3 class="title">Feel Good Inc.</h3>
-            <span class="subtitle">DEMON DAYS 2005</span>
+            <h3 class="title">{{ album["im:name"].label }}</h3>
+            <span class="subtitle">{{ album["im:artist"].label }}</span>
           </div>
           <button class="featured-btn">
             <span class="featured-text">FEATURED</span>
@@ -43,6 +47,13 @@ import axios from "axios";
   }
 })
 export default class Home extends Vue {
-  albums: Array<Object> = [{ id: "1" }, { id: "2" }];
+  albums: Array<Object> = [];
+  mounted() {
+    axios
+      .get("https://itunes.apple.com/us/rss/topalbums/limit=10/json")
+      .then(response => {
+        this.albums = response.data.feed.entry;
+      });
+  }
 }
 </script>

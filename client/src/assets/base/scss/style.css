@@ -205,9 +205,6 @@ h2, h3 {
   color: var(--aqua);
 }
 /* Padding */
-.pl-10 {
-  padding-left: 10px;
-}
 .padding-buttons {
   padding-top: 31px;
   padding-bottom: 31px;
