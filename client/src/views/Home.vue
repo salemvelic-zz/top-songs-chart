@@ -5,7 +5,12 @@
         <h2 class="header-title">Album list</h2>
         <h3 class="header-subtitle">Top 10</h3>
       </div>
-      <input class="search-field" type="search" placeholder="Search" />
+      <input
+        class="search-field"
+        type="search"
+        v-model="search"
+        placeholder="Search"
+      />
     </header>
     <main class="grid-container">
       <section class="start">
@@ -15,15 +20,11 @@
         </div>
         <div
           class="card"
-          v-for="album in albums"
+          v-for="album in albumList"
           :key="album.id.attributes['im:id']"
         >
-          <img
-            class="slika1"
-            :src="album['im:image'][0].label"
-            srcset="img/slika-1@2x.png 2x, img/slika-1@3x.png 3x"
-          />
-          <div class="content">
+          <img class="album-photo" :src="album['im:image'][0].label" />
+          <div class="float-left">
             <h3 class="title">{{ album["im:name"].label }}</h3>
             <span class="subtitle">{{ album["im:artist"].label }}</span>
           </div>
@@ -48,12 +49,25 @@ import axios from "axios";
 })
 export default class Home extends Vue {
   albums: Array<Object> = [];
+  search: String = "";
   mounted() {
     axios
       .get("https://itunes.apple.com/us/rss/topalbums/limit=10/json")
       .then(response => {
         this.albums = response.data.feed.entry;
       });
+  }
+  get albumList() {
+    return this.albums.filter(post => {
+      return (
+        post["im:name"].label
+          .toLowerCase()
+          .includes(this.search.toLowerCase()) ||
+        post["im:artist"].label
+          .toLowerCase()
+          .includes(this.search.toLowerCase())
+      );
+    });
   }
 }
 </script>
