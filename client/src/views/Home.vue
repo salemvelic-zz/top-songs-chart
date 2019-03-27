@@ -15,11 +15,11 @@
     <main class="grid-container">
       <section class="start">
         <div class="padding-buttons">
-          <span class="All">All</span>
-          <span class="Today">Featured</span>
+          <span class="All pointer">All</span>
+          <span class="Today pointer">Featured</span>
         </div>
         <div
-          class="card"
+          class="card pointer"
           v-for="album in albumList"
           :key="album.id.attributes['im:id']"
           @click="openModal(album)"
@@ -29,7 +29,7 @@
             <h3 class="title">{{ album["im:name"].label }}</h3>
             <span class="subtitle">{{ album["im:artist"].label }}</span>
           </div>
-          <button class="featured-btn">
+          <button class="featured-btn pointer">
             <span class="featured-text">FEATURED</span>
           </button>
         </div>

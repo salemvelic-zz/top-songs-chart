@@ -7,16 +7,18 @@
             <button class="pointer btn-close" @click="$emit('close')">
               <img src="../assets/base/img/exit-icon.svg" alt="" />
             </button>
-            <h4 class="artist-title">{{ albumInfo["im:artist"].label }}</h4>
             <h1 class="album-title">{{ albumInfo["im:name"].label }}</h1>
+            <h4 class="artist-title">{{ albumInfo["im:artist"].label }}</h4>
           </div>
-          <div class="modal-body">
-            <img
+          <div class="modal-body grid-container">
+            <div class="modal-album-img">
+              <img
               class="album-image"
               :src="albumInfo['im:image'][2].label"
               :alt="albumInfo.title.label"
-            />
-            <div class="album-description">
+              />
+            </div>
+            <div class="album-description ">
               <span class="album-description-title">Release date</span>
               <p class="album-description-content">
                 {{ albumInfo["im:releaseDate"].attributes.label }}

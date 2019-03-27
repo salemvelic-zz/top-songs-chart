@@ -113,10 +113,9 @@ h2, h3, h4 {
   background-color: var(--muted-white);
 }
 .All {
-  cursor: pointer;
-  padding-right: 6%;
-  width: 19px;
-  height: 20px;
+  padding-right: 25px;
+  /* width: 19px; */
+  /* height: 20px; */
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -126,9 +125,8 @@ h2, h3, h4 {
   color: var(--pinkish-grey);
 }
 .Today {
-  cursor: pointer;
-  width: 65px;
-  height: 20px;
+  /* width: 65px; */
+  /* height: 20px; */
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -144,18 +142,17 @@ h2, h3, h4 {
   justify-content: start;
   align-items: center;
   box-shadow: 0 1px 3px 0 #e7e7e7;
-  cursor: pointer;
   background-color: var(--white);
 }
 .float-left {
   float: left;
 }
 .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.33;
+  line-height: 1;
   letter-spacing: -0.7px;
   color: var(--blackish);
 }
@@ -179,11 +176,10 @@ h2, h3, h4 {
 }
 .featured-btn {
   border-radius: 3px;
-  padding: 5px 16px;
+  padding: 5px 10px;
   margin-left: auto;
-  margin-right: 21px;
+  margin-right: 10px;
   background-color: var(--aqua);
-  cursor: pointer;
   float: right;
   border: none;
 }
@@ -192,7 +188,7 @@ h2, h3, h4 {
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
-  line-height: normal;
+  line-height: 16px;
   letter-spacing: normal;
   border: none;
   color: var(--white);
@@ -221,8 +217,9 @@ h2, h3, h4 {
   right: 0;
   left: 0;
   bottom: 0;
+  margin: 5px;
   z-index: 1050; 
-  overflow: hidden;
+  overflow: scroll;
   outline: 0;
 }
 .modal-header {
@@ -233,10 +230,14 @@ h2, h3, h4 {
   flex-direction: column;
 }
 .modal-body {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
   padding: 0 15px 0;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
+}
+.modal-album-img {
+  grid-column-start: 1;
+  grid-column-end: 24;
 }
 .modal-content {
   position: relative;
@@ -250,31 +251,36 @@ h2, h3, h4 {
 }
 .modal-dialog {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 0 auto;
   position: relative;
   border-radius: 4px;
   box-shadow: 0 1px 20px 0 rgba(54, 54, 54, 0.6);
   background-color: var(--white);
 }
 .album-description {
-  float: right;
+  grid-column-start: 1;
+  grid-column-end: 24;
 }
 .album-title {
-  width: 472px;
-  height: 24px;
-  font-size: 33px;
+  /* width: 472px; */
+  /* height: 24px; */
+  font-size: 28px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  line-height: 0.73;
-  letter-spacing: -0.7px;
+  line-height: 1.2;
   color: var(--blackish);
+  letter-spacing: -0.7px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 .album-link {
   text-decoration: none;
 }
 .album-image {
   object-fit: contain;
+  width: 100%;
+  max-width: 170px;
 }
 .album-description-content {
   font-size: 16px;
@@ -285,6 +291,7 @@ h2, h3, h4 {
   letter-spacing: -0.6px;
   margin:0;
   color: var(--greyish-brown);
+  padding-bottom: 10px;
 }
 .album-description-title {
   width: 122px;
@@ -327,12 +334,34 @@ h2, h3, h4 {
   .search-field {
     grid-area: 3 / 14 / 6 / 24;
   }
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
   .title-container {
     grid-area: 3 / 2 / 6 / 10;
+  }
+  .featured-btn {
+    padding: 5px 16px;
+    margin-right: 21px;
   }
   .padding-buttons {
     padding-top: 41px;
     padding-bottom: 41px;
+  }
+  .modal {
+    margin: 0;
+  }
+  .modal-dialog {
+    margin: 30px auto;
+  }
+  .album-description {
+    grid-column-start: 11;
+    grid-column-end: 24;
+  }  
+  .modal-album-img {
+    grid-column-start: 1;
+    grid-column-end: 10;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -342,6 +371,10 @@ h2, h3, h4 {
   }
   .search-field {
     grid-area: 3 / 14 / 6 / 22;
+  }
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
   }
   .title-container {
     grid-area: 3 / 4 / 6 / 7;
@@ -353,5 +386,23 @@ h2, h3, h4 {
   .padding-buttons {
     padding-top: 41px;
     padding-bottom: 41px;
+  }
+  .featured-btn {
+    padding: 5px 16px;
+    margin-right: 21px;
+  }
+  .modal {
+    margin: 0;
+  }
+  .modal-dialog {
+    margin: 30px auto;
+  }
+  .album-description {
+    grid-column-start: 11;
+    grid-column-end: 24;
+  }  
+  .modal-album-img {
+    grid-column-start: 1;
+    grid-column-end: 10;
   }
 }
