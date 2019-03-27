@@ -1,11 +1,13 @@
 :root{
-  --muted-white: #f9f9f9;
-  --white: #fff;
-  --warm-grey: #828282;
+  --aqua: #13d6ea;
   --blackish: #363636;
+  --greyish: #a6a6a6;
+  --greyish-brown: #545454;
+  --muted-white: #f9f9f9;
   --pinkish-grey: #cfcfcf;
   --turquoise-blue: #00accf;
-  --aqua: #13d6ea;
+  --warm-grey: #828282;
+  --white: #fff;
 }
 * {
   font-family: 'Work Sans', sans-serif;
@@ -18,7 +20,7 @@
   display: grid;
 }
 /* Header */
-h2, h3 {
+h2, h3, h4 {
   margin: 0;
 }
 .header-shape {
@@ -86,6 +88,14 @@ h2, h3 {
   color: var(--warm-grey);
 }
 /* Body */
+.pointer {
+  cursor: pointer;
+}
+.btn-close {
+  border: none;
+  background: none;
+  align-self: flex-end;
+}
 .start {
   grid-column-start: 2;
   grid-column-end: 24;
@@ -134,6 +144,7 @@ h2, h3 {
   justify-content: start;
   align-items: center;
   box-shadow: 0 1px 3px 0 #e7e7e7;
+  cursor: pointer;
   background-color: var(--white);
 }
 .float-left {
@@ -201,6 +212,112 @@ h2, h3 {
 .padding-buttons {
   padding-top: 31px;
   padding-bottom: 31px;
+}
+/* Modal */
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1050; 
+  overflow: hidden;
+  outline: 0;
+}
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+  flex-direction: column;
+}
+.modal-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 0;
+  margin: 20px 0;
+}
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  background-clip: padding-box;
+  border:0;
+  border-radius:0;
+  border-radius:4px;
+}
+.modal-dialog {
+  max-width: 600px;
+  margin: 30px auto;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 1px 20px 0 rgba(54, 54, 54, 0.6);
+  background-color: var(--white);
+}
+.album-description {
+  float: right;
+}
+.album-title {
+  width: 472px;
+  height: 24px;
+  font-size: 33px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.73;
+  letter-spacing: -0.7px;
+  color: var(--blackish);
+}
+.album-link {
+  text-decoration: none;
+}
+.album-image {
+  object-fit: contain;
+}
+.album-description-content {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: -0.6px;
+  margin:0;
+  color: var(--greyish-brown);
+}
+.album-description-title {
+  width: 122px;
+  height: 14px;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+  color: var(--greyish);
+}
+.artist-title {
+  /* width: 42px; */
+  /* height: 14px; */
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+  color: var(--aqua);
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 @media only screen and (min-width: 768px) {
   .background {

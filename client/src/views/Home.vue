@@ -22,6 +22,7 @@
           class="card"
           v-for="album in albumList"
           :key="album.id.attributes['im:id']"
+          @click="openModal(album)"
         >
           <img class="album-photo" :src="album['im:image'][0].label" />
           <div class="float-left">
@@ -34,22 +35,29 @@
         </div>
       </section>
     </main>
+    <detail-view
+      @close="closeModal"
+      v-if="visibilityDetailView"
+      :albumInfo="albumInfo"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import DetailView from "@/components/DetailView.vue"; // @ is an alias to /src
 import axios from "axios";
 
 @Component({
   components: {
-    HelloWorld
+    DetailView
   }
 })
 export default class Home extends Vue {
+  albumInfo: Object = [];
   albums: Array<Object> = [];
   search: String = "";
+  visibilityDetailView: Boolean = false;
   mounted() {
     axios
       .get("https://itunes.apple.com/us/rss/topalbums/limit=10/json")
@@ -68,6 +76,13 @@ export default class Home extends Vue {
           .includes(this.search.toLowerCase())
       );
     });
+  }
+  openModal(album) {
+    this.albumInfo = album;
+    this.visibilityDetailView = true;
+  }
+  closeModal() {
+    this.visibilityDetailView = false;
   }
 }
 </script>
