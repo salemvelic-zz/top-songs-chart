@@ -4,7 +4,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button class="pointer btn-close" @click="$emit('close')">
+            <button class="pointer btn btn-close" @click="$emit('close')">
               <img src="../assets/base/img/exit-icon.svg" alt="" />
             </button>
             <h1 class="album-title">{{ albumInfo["im:name"].label }}</h1>
@@ -13,9 +13,9 @@
           <div class="modal-body grid-container">
             <div class="modal-album-img">
               <img
-              class="album-image"
-              :src="albumInfo['im:image'][2].label"
-              :alt="albumInfo.title.label"
+                class="album-image"
+                :src="albumInfo['im:image'][2].label"
+                :alt="albumInfo.title.label"
               />
             </div>
             <div class="album-description ">
@@ -48,6 +48,6 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class DetailView extends Vue {
-  @Prop() private albumInfo: Object;
+  @Prop() private albumInfo!: Object;
 }
 </script>
