@@ -35,9 +35,6 @@ h2, h3, h4 {
 .header-title {
   font-size: 24px;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
   letter-spacing: -0.9px;
   color: var(--blackish);
 }
@@ -45,9 +42,6 @@ h2, h3, h4 {
   margin-top: 5px;
   font-size: 11px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
   letter-spacing: -0.4px;
   color: var(--warm-grey);
 }
@@ -133,6 +127,10 @@ h2, h3, h4 {
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: -0.6px;
+  color: var(--aqua);
+  transition: all .15s ease-in-out;
+}
+.featured:hover {
   color: var(--turquoise-blue);
 }
 /* Card */
@@ -165,10 +163,6 @@ h2, h3, h4 {
 .subtitle {
   opacity: 0.47;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
   letter-spacing: -0.4px;
   color: var(--blackish);
 }
@@ -187,26 +181,26 @@ h2, h3, h4 {
   float: right;
   border: none;
   outline: none;
+  transition: all .15s ease-in-out;
+}
+.featured-btn:hover {
+  background-color: var(--turquoise-blue);
 }
 .featured-text {
   font-size: 10px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 16px;
-  letter-spacing: normal;
   border: none;
   color: var(--white);
 }
 .add-featured {
   font-size: 12px;
   text-decoration: underline;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: var(--aqua);
+  transition: all .15s ease-in-out;
+}
+.add-featured:hover {
+  color: var(--turquoise-blue);
 }
 /* Padding */
 .padding-buttons {
@@ -248,7 +242,6 @@ h2, h3, h4 {
   background-color: #fff;
   background-clip: padding-box;
   border:0;
-  border-radius:0;
   border-radius:4px;
 }
 .modal-dialog {
@@ -266,8 +259,6 @@ h2, h3, h4 {
 .album-title {
   font-size: 28px;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.2;
   color: var(--blackish);
   letter-spacing: -0.7px;
@@ -276,6 +267,11 @@ h2, h3, h4 {
 }
 .album-link {
   text-decoration: none;
+  color: var(--aqua);  
+  transition: all .15s ease-in-out;
+}
+.album-link:hover {
+  color: var(--turquoise-blue)
 }
 .album-image {
   object-fit: contain;
@@ -284,9 +280,6 @@ h2, h3, h4 {
 }
 .album-description-content {
   font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.5;
   letter-spacing: -0.6px;
   margin:0;
@@ -295,10 +288,6 @@ h2, h3, h4 {
 }
 .album-description-title {
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
   letter-spacing: -0.4px;
   text-transform: uppercase;
   color: var(--greyish);
@@ -306,9 +295,6 @@ h2, h3, h4 {
 .artist-title {
   font-size: 12px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
   letter-spacing: -0.4px;
   text-transform: uppercase;
   color: var(--aqua);
@@ -382,11 +368,11 @@ h2, h3, h4 {
   }
   .featured-btn {
     padding: 5px 16px;
-    margin-right: 21px;
+    margin-right: 20px;
   }
   .padding-buttons {
-    padding-top: 41px;
-    padding-bottom: 41px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .modal {
     margin: 0;
@@ -432,9 +418,6 @@ h2, h3, h4 {
   }
   .modal {
     margin: 0;
-  }
-  .modal-dialog {
-    margin: 30px auto;
   }
   .album-description {
     grid-column-start: 11;
