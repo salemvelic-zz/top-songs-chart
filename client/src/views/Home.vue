@@ -28,40 +28,44 @@
             >Featured</span
           >
         </div>
-        <div
-          class="card"
-          v-for="(album, index) in albumList"
-          :key="album.id.attributes['im:id']"
-        >
-          <div class="pointer card-link" @click="openModal(album)">
-            <img class="album-photo" :src="album['im:image'][0].label" />
-            <div class="float-left album-info">
-              <h3 class="title">{{ album["im:name"].label }}</h3>
-              <span class="subtitle">{{ album["im:artist"].label }}</span>
+        <transition-group name="slide">
+          <div
+            class="card"
+            v-for="(album, index) in albumList"
+            :key="album.id.attributes['im:id']"
+          >
+            <div class="pointer card-link" @click="openModal(album)">
+              <img class="album-photo" :src="album['im:image'][0].label" />
+              <div class="float-left album-info">
+                <h3 class="title">{{ album["im:name"].label }}</h3>
+                <span class="subtitle">{{ album["im:artist"].label }}</span>
+              </div>
             </div>
+            <button
+              class="featured-btn pointer"
+              v-if="album.isFeatured"
+              @click="removeFromFeatured(index)"
+            >
+              <span class="featured-text">FEATURED</span>
+            </button>
+            <button
+              class="btn add-featured pointer"
+              v-else
+              @click="addToFeatured(index)"
+            >
+              <span>Add to featured</span>
+            </button>
           </div>
-          <button
-            class="featured-btn pointer"
-            v-if="album.isFeatured"
-            @click="removeFromFeatured(index)"
-          >
-            <span class="featured-text">FEATURED</span>
-          </button>
-          <button
-            class="btn add-featured pointer"
-            v-else
-            @click="addToFeatured(index)"
-          >
-            <span>Add to featured</span>
-          </button>
-        </div>
+        </transition-group>
       </section>
     </main>
-    <detail-view
-      @close="closeModal"
-      v-if="visibilityDetailView"
-      :albumInfo="albumInfo"
-    />
+    <transition name="fade">
+      <detail-view
+        @close="closeModal"
+        v-if="visibilityDetailView"
+        :albumInfo="albumInfo"
+      />
+    </transition>
   </div>
 </template>
 
